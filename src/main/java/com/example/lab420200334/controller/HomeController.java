@@ -26,8 +26,8 @@ public class HomeController {
 
 
     @PostMapping("/login/inicioSesion")
-    public String validarcredencial(@RequestParam("correo") String correo, @RequestParam("constrasena") String constrasena, Model model ){
-        Optional<User> optUser = Optional.ofNullable(userRepository.encontrarUsuario(correo, constrasena));
+    public String validarcredencial(@RequestParam("correo") String correo, @RequestParam("contrasena") String contrasena, Model model ){
+        Optional<User> optUser = Optional.ofNullable(userRepository.encontrarUsuario(correo, contrasena));
 
         if (optUser.isPresent()) {
             User user = optUser.get();
@@ -38,10 +38,6 @@ public class HomeController {
         }
 
 
-
-
-
-        return "inicio";
     }
 
 }
