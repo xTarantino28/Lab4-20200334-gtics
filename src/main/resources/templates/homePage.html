@@ -88,7 +88,12 @@
             caminata, montañismo,
             hiking o trekking.</span> </p>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-success btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+          <form method="post" th:action="@{/guardarReserva}">
+            <input type="hidden" name="user_iduser" th:value="${user.iduser}">
+            <input type="hidden" name="vuelo_idvuelo" th:value="${vuelo.idvuelo}">
+            <input type="hidden" name="precio_total" th:value="${vuelo.precio}">
+            <button type="submit" class="btn btn-success btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
+          </form>
         </div>
       </div>
     </div>
