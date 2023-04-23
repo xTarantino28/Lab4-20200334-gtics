@@ -73,39 +73,58 @@
     </div>
   </div>
 
+
   <div class="row">
-    <div class="col-sm-6 mt-2 ml-2 mb-4">
+
+    <div class="col-sm-6 mt-2 ml-2 mb-4" th:each="vuelo : ${listaVuelos}">
       <div class="card text-center border-white">
         <div class="card-body">
-          <h5 class="card-git title mt-3">Lima - Bogota <span class="text-danger"><b>($120.00)</b></span></h5>
-          <p class="text-success"><b>Star Peru - 2I</b> </p>
-          <p>Definitivamente el turismo en Bogotá en más que Monserrate y la Candelaria, hay muchas excursiones por
+          <h5 class="card-git title mt-3"> <span th:text="${vuelo.origen}"></span>  -  <span th:text="${vuelo.destino}"></span> <b><span th:text=" '($' + ${vuelo.precio} + ')'" class="text-danger"></span></b> </h5>
+          <p class="text-success"><b><span th:text="${vuelo.aerolinea.nombre}"></span> - <span th:text="${vuelo.aerolinea.codigo}"></span></b> </p>
+          <p>   <span th:text="${vuelo.descripcion}">
+            Definitivamente el turismo en Bogotá en más que Monserrate y la Candelaria, hay muchas excursiones por
             senderos
             mágicos que puedes realizar. Estas actividades también se conocen como: senderismo, excursionismo,
             caminata, montañismo,
-            hiking o trekking.</p>
-          <button class="btn btn-success btn-lg btn-block">Comprar</button>
+            hiking o trekking.</span> </p>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-success btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Comprar</button>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-6 mt-2 ml-2 mb-4">
-      <div class="card text-center border-white">
-        <div class="card-body">
-          <h5 class="card-title mt-3">Lima - Bogota <span class="text-danger"><b>($120.00)</b></span></h5>
-          <p class="text-success"><b>Star Peru - 2I</b> </p>
-          <p>Definitivamente el turismo en Bogotá en más que Monserrate y la Candelaria, hay muchas excursiones por
-            senderos
-            mágicos que puedes realizar. Estas actividades también se conocen como: senderismo, excursionismo,
-            caminata, montañismo,
-            hiking o trekking.</p>
-          <button class="btn btn-success btn-lg btn-block">Comprar</button>
+  </div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Felicidades</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-success" style="text-align: center">
+          <b>Su pago se realizó con
+          éxito</b>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Entiendo</button>
+
         </div>
       </div>
     </div>
   </div>
 
+
+
+
+
+
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
